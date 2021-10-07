@@ -1,39 +1,47 @@
 #!/bin/bash
+
 if [[ -z "$@" ]]; then
 	echo "Invalid usage of flutter-custom-widget"
 	echo "Try 'flutter-custom-widget -h' for more information"
 	exit 1
 fi
 
-
-checkFlutterDirectory(){
+checkFlutterDirectory() {
 	PUBSPEC_FILE=./pubspec.yaml
-	 if test -f "$PUBSPEC_FILE";
-	 then
-		echo 'Is a flutter dir'
-		else
+	if [[ ! -f "$PUBSPEC_FILE" ]]; then
 		echo 'Not a flutter project directory'
 		exit 1
-	 fi
-	 
+	fi
 
-	# if [[ ]]
 }
 
+installPackage() {
+	
+	case "$1" in
+	error_pop_up)
+		echo 'installing error pop up'
+		REPO=$(where flutter-custom-widget)
+		echo "$REPO"
+		;;
+	\?)
+		echo "Package '$1' not found"
+		echo "Try 'flutter-custom-widget -l ' to list packages available"
+		exit 1
+		;;
+	esac
+
+}
 
 while getopts :hi: opt; do
 
 	case $opt in
-
 	h)
 		echo "flutter-custom-widget"
 		echo "by Victor Hugo (github.com/wdvictor)"
 		;;
 	i)
-		echo "installing $OPTARG"
 		checkFlutterDirectory
-
-		echo "continue"
+		installPackage "$OPTARG"
 		;;
 	\?)
 		echo "Invalid option -$opt" >&2
