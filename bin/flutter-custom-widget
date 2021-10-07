@@ -1,5 +1,4 @@
-#!/bin/zsh
-
+#!/bin/bash
 if [[ -z "$@" ]]
 then
 	echo "Invalid usage of flutter-custom-widget"
@@ -7,17 +6,14 @@ then
 	exit 1
 fi
 
-while getopts :l:p:hi: opt; do
+while getopts :hi: opt; do
 	
 	case $opt in
-		p) FILE_PATH="$OPTARG"	
-		;;
-		l) LINE="$OPTARG"
-		;;
+		
 		h) echo "flutter-custom-widget"
 		   echo "by Victor Hugo (github.com/wdvictor)"
 		;;
-		i) echo "instaling $OPTARG"
+		i) echo "installing $OPTARG"
 		;;
 		\?) echo "Invalid option -$opt">&2
 		exit 1
@@ -33,11 +29,11 @@ while getopts :l:p:hi: opt; do
 done
 
 
-checkFlutterDirectory(){
-	echo "$(pwd)"
-	# if [[ ]]
-	# IS_FLUTTER_DIR="$()"
-}
+# checkFlutterDirectory(){
+# 	echo "$(pwd)"
+# 	# if [[ ]]
+# 	# IS_FLUTTER_DIR="$()"
+# }
 		
 		
 	
