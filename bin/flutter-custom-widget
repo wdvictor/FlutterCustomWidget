@@ -1,39 +1,56 @@
 #!/bin/bash
-if [[ -z "$@" ]]
-then
+if [[ -z "$@" ]]; then
 	echo "Invalid usage of flutter-custom-widget"
 	echo "Try 'flutter-custom-widget -h' for more information"
 	exit 1
 fi
 
+
+checkFlutterDirectory(){
+	PUBSPEC_FILE=./pubspec.yaml
+	 if test -f "$PUBSPEC_FILE";
+	 then
+		echo 'Is a flutter dir'
+		else
+		echo 'Not a flutter project directory'
+		exit 1
+	 fi
+	 
+
+	# if [[ ]]
+}
+
+
 while getopts :hi: opt; do
-	
+
 	case $opt in
-		
-		h) echo "flutter-custom-widget"
-		   echo "by Victor Hugo (github.com/wdvictor)"
+
+	h)
+		echo "flutter-custom-widget"
+		echo "by Victor Hugo (github.com/wdvictor)"
 		;;
-		i) echo "installing $OPTARG"
+	i)
+		echo "installing $OPTARG"
+		checkFlutterDirectory
+
+		echo "continue"
 		;;
-		\?) echo "Invalid option -$opt">&2
+	\?)
+		echo "Invalid option -$opt" >&2
+		exit 1
+		;;
+	*)
+		echo "Invalid usage of flutter-custom-widget"
+		echo "Try 'flutter-custom-widget -h' for more information"
 		exit 1
 		;;
 	esac
 
 	case $OPTARG in
-	    -*) echo "Option $opt needs a valid argument"
-	    exit 1
-	    ;;
-	  esac
-	
+	-*)
+		echo "Option $opt needs a valid argument"
+		exit 1
+		;;
+	esac
+
 done
-
-
-# checkFlutterDirectory(){
-# 	echo "$(pwd)"
-# 	# if [[ ]]
-# 	# IS_FLUTTER_DIR="$()"
-# }
-		
-		
-	
