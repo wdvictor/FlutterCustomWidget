@@ -16,12 +16,15 @@ checkFlutterDirectory() {
 }
 
 installPackage() {
-	
+
 	case "$1" in
 	error_pop_up)
+		#TODO(wdvictor) Find a way to find where is the FCW dir
 		echo 'installing error pop up'
-		REPO=$(where flutter-custom-widget)
-		echo "$REPO"
+		#REPO=$(whereis flutter-custom-widget)
+		REPO="$HOME/Github/FlutterCustomWidget"
+		cp "$REPO/error_pop_up/error_popup.dart" ./lib
+		echo "'error_pop_up' installed in you lib folder"
 		;;
 	\?)
 		echo "Package '$1' not found"
