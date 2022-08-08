@@ -1,4 +1,4 @@
-# FlutterCustomWidget
+# Flutter Custom Widget
 
 Install custom widgets commonly used in flutter apps with a single command line. 
 This project is used by me to learn bash, and came with a very handly ideia: Install custom widgets that I use in flutter projects with a single command line rather than find the code, copy and past.
