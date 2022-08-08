@@ -13,9 +13,27 @@
 ARGS=($*)
 
 function installCustomWidget(){
-    echo "installing $1 ..."
+   case $1 in
+    error_pop_up)
+        echo "installing error_pop_up"
+    ;;
+    extensions)
+        echo "installing extensions"
+    ;;
+    *) "$1 not found"
+   esac
 }
 
+# ${#arrayName[@]} is a way to find an array length
+function checkFlutterRootDirectory(){
+    dir=$(ls ./)
+
+    if [[ ${#dir[@]} -gt 0 ]]; then
+        echo "dir has files"
+    else
+        echo "dir has no files"
+    fi
+}
 
 
 # Curly brackets are required for arrays to access index
@@ -26,7 +44,8 @@ for i in ${!ARGS[@]}; do
     if [[ ${ARGS[$i]} == -* ]]; then
         case ${ARGS[$i]} in
         -i) 
-            installCustomWidget "installing ${ARGS[$i+1]}"
+            checkFlutterRootDirectory
+            installCustomWidget "${ARGS[$i+1]}"
         ;;
         *) echo "$i not a option"
         esac
