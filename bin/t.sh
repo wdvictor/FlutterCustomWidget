@@ -12,7 +12,9 @@
 #Otherwise, Bash will treat the variable name as a program to execute, and the = as its first parameter!
 ARGS=($*)
 
-
+function installCustomWidget(){
+    echo "installing $1 ..."
+}
 
 
 
@@ -24,9 +26,11 @@ for i in ${!ARGS[@]}; do
     if [[ ${ARGS[$i]} == -* ]]; then
         case ${ARGS[$i]} in
         -i) 
-            echo "installing ${ARGS[$i+1]}"
+            installCustomWidget "installing ${ARGS[$i+1]}"
         ;;
         *) echo "$i not a option"
         esac
     fi
 done
+
+
