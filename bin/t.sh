@@ -25,16 +25,16 @@ function installCustomWidget(){
 }
 
 # ${#arrayName[@]} is a way to find an array length
+# -f: check is a file exist
 function checkFlutterRootDirectory(){
-    dir=$(ls ./)
-
-    if [[ ${#dir[@]} -gt 0 ]]; then
-        echo "dir has files"
+   if [[ -f "pubspec.yaml" ]]; then
+        echo "Is a flutter directory"
     else
-        echo "dir has no files"
-    fi
+        echo "not a flutter directory"
+   fi
 }
 
+checkFlutterRootDirectory
 
 # Curly brackets are required for arrays to access index
 # @ is used to output all elements of an array
@@ -44,7 +44,7 @@ for i in ${!ARGS[@]}; do
     if [[ ${ARGS[$i]} == -* ]]; then
         case ${ARGS[$i]} in
         -i) 
-            checkFlutterRootDirectory
+            
             installCustomWidget "${ARGS[$i+1]}"
         ;;
         *) echo "$i not a option"
