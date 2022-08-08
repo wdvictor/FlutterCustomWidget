@@ -6,11 +6,11 @@ This project is used by me to learn bash, and came with a very handly ideia: Ins
 
 # How to use
 
-	$ flutter-custom-widget -i [widget_name]
+	$ fluttercw -i [widget_name]
 	
 Example:
 
-	$ flutter-custom-widget -i extensions
+	$ fluttercw -i extensions
 
    
  &ensp; &ensp; &ensp; &ensp; Will create a folder called extension in the /lib folder and create a file called extensions.dart with a lot very handy extensions to use in dart code.
