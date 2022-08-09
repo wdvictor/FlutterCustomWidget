@@ -15,7 +15,7 @@ ARGS=($*)
 function check_dependency(){
     exist=$(cat pubspec.yaml | grep $1)
     if [[ -z $exist ]]; then
-        flutter pub add awesome_dialog
+        flutter pub add "$1"
     fi
    
 }
@@ -28,7 +28,7 @@ function install_custom_widget(){
         echo "Extensions was added to lib/extension folder"
     ;;
     alert_dialog)
-        check_dependency "awesome_dialog:"
+        check_dependency "awesome_dialog"
         if [[ ! -d "./lib/widgets" ]]; then
              mkdir ./lib/widgets   
         fi
