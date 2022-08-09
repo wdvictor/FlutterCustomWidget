@@ -20,6 +20,31 @@ function check_dependency(){
    
 }
 
+function install_alert_dialog(){
+    check_dependency "awesome_dialog"
+    if [[ ! -d "./lib/widgets" ]]; then
+        mkdir ./lib/widgets   
+    fi
+    cp $FLUTTERCW_DIR/alert_dialog/alert_dialog.dart ./lib/widgets
+    echo "Alert Dialog file was added to lib/widgets folder"
+}
+
+function install_fab_button(){
+    if [[ ! -d "./lib/widgets" ]]; then
+        mkdir ./lib/widgets   
+    fi
+    cp -r $FLUTTERCW_DIR/animated_fab_button ./lib/widgets
+    echo "Animated Fab Button directory was added to lib/widgets folder"
+}
+
+function install_custom_awesome_dialog(){
+    check_dependency "awesome_dialog"
+    if [[ ! -d "./lib/widgets" ]]; then
+        mkdir ./lib/widgets   
+    fi
+     cp $FLUTTERCW_DIR/custom_awesome_dialog/custom_awesome_dialog.dart ./lib/widgets
+    echo "Custom Dialog file was added to lib/widgets folder"
+}
 
 function install_custom_widget(){
    case $1 in
@@ -28,19 +53,13 @@ function install_custom_widget(){
         echo "Extensions was added to lib/extension folder"
     ;;
     alert_dialog)
-        check_dependency "awesome_dialog"
-        if [[ ! -d "./lib/widgets" ]]; then
-             mkdir ./lib/widgets   
-        fi
-
-        cp $FLUTTERCW_DIR/alert_dialog/alert_dialog.dart ./lib/widgets
-        echo "Alert Dialog file was added to lib/widgets folder"
+        install_alert_dialog
     ;;
     animated_fab_button)
-        echo "installing extensions"
+        install_fab_button
     ;;
     custom_awesome_dialog)
-        echo "installing extensions"
+        install_custom_awesome_dialog
     ;;
     *)  echo "´$1´ widget not found. Use ´fluttercw -l´ to list all available widgets"
     ;;
@@ -62,6 +81,13 @@ function list_widgets_available(){
     extensions            Create a file with handy dart extensions.
     alert_dialog          Alert Dialog widget to display in cases of warnings or alerts.
     animated_fab_button   A Widget to use with floating Action Button parameter in Scaffold. Has an beautiful animation.
+    '''
+}
+
+function show_help(){
+    echo '''
+    
+
     '''
 }
 

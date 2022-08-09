@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Material;
-import 'package:google_fonts/google_fonts.dart';
 
 ///Use **ActionButton** has children to **ExpandableFab**
 @immutable
@@ -33,13 +32,11 @@ class ActionButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                title,
-                style: GoogleFonts.montserrat(
-                    fontWeight: FontWeight.w500,
-                    color: CupertinoColors.white,
-                    fontSize: 15),
-              ),
+              Text(title,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: CupertinoColors.white,
+                      fontSize: 15)),
               icon
             ],
           ),
