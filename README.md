@@ -92,8 +92,9 @@ $ fluttercw -i extensions
  -  **-lt**    &ensp; &ensp; Less than
  - **-le**   &ensp; &ensp; Less than or equal
  -  **!=**  &ensp; &ensp;  different
-- [[ $i == z* ]] True if $a starts with an z (pattern matching)
-- [[ $a == "z*" ]] True if $a is equal to z* (String literal)
+ -  **\$i == z***  True if $a starts with an z (pattern matching)
+ -  **\$a == "z\*"**  True if $a is equal to z* (String literal)
   
 ## Files
-- -f check if the file exist. Ex: if [[ -f  "main.py" ]]; then
+- **-f** check if the file exist. Ex: if [[ -f  "main.py" ]]; then
+- **-d** Check if a directory exist

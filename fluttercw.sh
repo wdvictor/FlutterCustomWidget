@@ -12,6 +12,15 @@
 #Otherwise, Bash will treat the variable name as a program to execute, and the = as its first parameter!
 ARGS=($*)
 
+function check_dependency(){
+    exist=$(cat pubspec.yaml | grep $1)
+    if [[ -z $exist ]]; then
+        flutter pub add awesome_dialog
+    fi
+   
+}
+
+
 function install_custom_widget(){
    case $1 in
     extensions)
@@ -19,7 +28,13 @@ function install_custom_widget(){
         echo "Extensions was added to lib/extension folder"
     ;;
     alert_dialog)
-        echo "installing extensions"
+        check_dependency "awesome_dialog:"
+        if [[ ! -d "./lib/widgets" ]]; then
+             mkdir ./lib/widgets   
+        fi
+
+        cp $FLUTTERCW_DIR/alert_dialog/alert_dialog.dart ./lib/widgets
+        echo "Alert Dialog file was added to lib/widgets folder"
     ;;
     animated_fab_button)
         echo "installing extensions"
