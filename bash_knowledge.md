@@ -8,7 +8,7 @@
 
   
 
--  **$*** Stores the numbers of arguments passed to bash program
+-  **$*** Stores the numbers of arguments passed to the bash program
 
   
 
@@ -20,7 +20,7 @@
 
   
 
--  **$#** Stores all the argument that were entered on the command line
+-  **$#** Stores all the arguments that were entered on the command line
 
   
   
@@ -41,7 +41,7 @@
 
   
 
-- Curly brackets are required for arrays to access index. Ex ${ARGS[0]}
+- Curly brackets are required for arrays to access the index. Ex ${ARGS[0]}
 
   
 
@@ -83,18 +83,18 @@
 
 ## Files
 
--  **-f** check if the file exist. Ex: if [[ -f "main.py" ]]; then
+-  **-f** check if the file exists. Ex: if [[ -f "main.py" ]]; then
 
--  **-d** Check if a directory exist
+-  **-d** Check if a directory exists
 
 ## Sed
 
 	$sed -i 'a some text' someFile.text
-&ensp;  Will append `some text` after every lines (Will double the lines in the file).  The -i paramater tell to edit the **someFile.txt** file.
-&ensp;  To Append `some text` only at the end of the file, use $ at the beggining
+&ensp;  Will append `some text` after every line (Will double the lines in the file).  The -i parameter tells to edit the **someFile.txt** file.
+&ensp;  To Append `some text` only at the end of the file, use $ at the beginning
 
 	$sed -i '$ a some text' someFile.text
 	
-&ensp; You can specify the line in which will be appended to:
+&ensp; You can specify the line which will be appended to:
 
 	$sed -i '3 a some text' someFile.text
