@@ -20,7 +20,8 @@ function installCustomWidget(){
     extensions)
         echo "installing extensions"
     ;;
-    *) "$1 not found"
+    *)  echo "´$1´ widget not found. Use ´fluttercw -l´ to list all available widgets"
+    ;;
    esac
 }
 
@@ -31,13 +32,17 @@ function checkFlutterRootDirectory(){
         echo "Is a flutter directory"
         return 0
     else
-        echo "not a flutter directory"
+        echo "Not a flutter directory"
         return 1
    fi
 }
 
 checkFlutterRootDirectory
-echo $?
+IS_FLUTTER_DIR=$?
+if [[ IS_FLUTTER_DIR -eq 1 ]]; then
+    exit 1
+fi
+
 
 # Curly brackets are required for arrays to access index
 # @ is used to output all elements of an array
@@ -47,7 +52,6 @@ for i in ${!ARGS[@]}; do
     if [[ ${ARGS[$i]} == -* ]]; then
         case ${ARGS[$i]} in
         -i) 
-            
             installCustomWidget "${ARGS[$i+1]}"
         ;;
         *) echo "$i not a option"
