@@ -20,6 +20,15 @@ function installCustomWidget(){
     extensions)
         echo "installing extensions"
     ;;
+    alert_dialog)
+        echo "installing extensions"
+    ;;
+    animated_fab_button)
+        echo "installing extensions"
+    ;;
+    custom_awesome_dialog)
+        echo "installing extensions"
+    ;;
     *)  echo "´$1´ widget not found. Use ´fluttercw -l´ to list all available widgets"
     ;;
    esac
