@@ -4,9 +4,9 @@
 
   
 
-&ensp;&ensp;&ensp;&ensp; Install custom widgets commonly used in flutter apps with a single command line.
-&ensp;&ensp;&ensp;&ensp; This project is used by me to learn bash, and came with a convenient idea: Install custom widgets that I use in flutter projects with a single command line rather than find the code, copy, and past.
-&ensp;&ensp;&ensp;&ensp; We are programer rigth? Do repetitive tasks are against our *code* (pa-tum-tis)
+&ensp;&ensp;&ensp;&ensp; Install custom widgets commonly used in flutter apps with a single command line.<br>
+&ensp;&ensp;&ensp;&ensp; This project is used by me to learn bash, and came with a convenient idea: Install custom widgets that I use in flutter projects with a single command line rather than find the code, copy, and past.<br>
+&ensp;&ensp;&ensp;&ensp; Are we developers right? Do repetitive tasks are against our `code` (pa-tum-tis)
 
   
 # Installation
