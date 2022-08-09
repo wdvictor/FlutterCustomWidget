@@ -14,9 +14,6 @@ ARGS=($*)
 
 function installCustomWidget(){
    case $1 in
-    error_pop_up)
-        echo "installing error_pop_up"
-    ;;
     extensions)
         echo "installing extensions"
     ;;
@@ -38,12 +35,20 @@ function installCustomWidget(){
 # -f: check is a file exist
 function checkFlutterRootDirectory(){
    if [[ -f "pubspec.yaml" ]]; then
-        echo "Is a flutter directory"
         return 0
     else
-        echo "Not a flutter directory"
         return 1
    fi
+}
+
+function listWidgetsAvailable(){
+    echo '''
+    Available widgets:
+
+    extensions            Create a file with handy dart extensions.
+    alert_dialog          Alert Dialog widget to display in cases of warnings or alerts.
+    animated_fab_button   A Widget to use with floating Action Button parameter in Scaffold. Has an beautiful animation.
+    '''
 }
 
 checkFlutterRootDirectory
@@ -62,6 +67,21 @@ for i in ${!ARGS[@]}; do
         case ${ARGS[$i]} in
         -i) 
             installCustomWidget "${ARGS[$i+1]}"
+        ;;
+        --install) 
+            installCustomWidget "${ARGS[$i+1]}"
+        ;;
+        -l) 
+            listWidgetsAvailable
+        ;;
+        --list) 
+            listWidgetsAvailable
+        ;;
+        -h) 
+            listWidgetsAvailable
+        ;;
+        --help) 
+            listWidgetsAvailable
         ;;
         *) echo "$i not a option"
         esac
