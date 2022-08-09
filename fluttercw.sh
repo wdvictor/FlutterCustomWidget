@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# -i --install (custom widget name)
-# -l --list (list custom widgets available)
-# Check if the user is using in an flutter directory
-# when installing, if the custom widget use any package (such as awesome_dialog), verify if the user has the 
-# dependency, if not install it. 
-
-
-#(https://opensource.com/article/18/5/you-dont-know-bash-intro-bash-arrays) <-- Source to learn array in bash
-#And just as with any other Bash variable, make sure to leave no spaces around the equal sign. 
-#Otherwise, Bash will treat the variable name as a program to execute, and the = as its first parameter!
 ARGS=($*)
 
 function check_dependency(){
