@@ -12,7 +12,7 @@
 #Otherwise, Bash will treat the variable name as a program to execute, and the = as its first parameter!
 ARGS=($*)
 
-function installCustomWidget(){
+function install_custom_widget(){
    case $1 in
     extensions)
         echo "installing extensions"
@@ -41,7 +41,7 @@ function checkFlutterRootDirectory(){
    fi
 }
 
-function listWidgetsAvailable(){
+function list_widgets_available(){
     echo '''
     Available widgets:
 
@@ -58,33 +58,43 @@ if [[ IS_FLUTTER_DIR -eq 1 ]]; then
 fi
 
 
-# Curly brackets are required for arrays to access index
-# @ is used to output all elements of an array
-# the ! return the list of all array indices
+
+if [[ ${#ARGS[@]} -eq 0 ]]; then
+    echo "Missing arguments"
+    printf "\n\n"
+    printf "Run fluttercw -h available commands"
+    exit 2
+
+fi
+
 for i in ${!ARGS[@]}; do
     
     if [[ ${ARGS[$i]} == -* ]]; then
         case ${ARGS[$i]} in
         -i) 
-            installCustomWidget "${ARGS[$i+1]}"
+            install_custom_widget "${ARGS[$i+1]}"
         ;;
         --install) 
-            installCustomWidget "${ARGS[$i+1]}"
+            install_custom_widget "${ARGS[$i+1]}"
         ;;
         -l) 
-            listWidgetsAvailable
+            list_widgets_available
         ;;
         --list) 
-            listWidgetsAvailable
+            list_widgets_available
         ;;
         -h) 
-            listWidgetsAvailable
+            list_widgets_available
         ;;
         --help) 
-            listWidgetsAvailable
+            list_widgets_available
         ;;
         *) echo "$i not a option"
+        ;;
         esac
+        exit 0
+    
+        
     fi
 done
 
