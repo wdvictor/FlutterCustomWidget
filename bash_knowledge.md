@@ -90,7 +90,7 @@
 ## Sed
 
 	$sed -i 'a some text' someFile.text
-&ensp;  Will append `some text` after every line (Will double the lines in the file).  The -i parameter tells to edit the **someFile.txt** file.
+&ensp;  Will append `some text` after every line (It Will double the lines in the file).  The -i parameter tells to edit the **someFile.txt** file.
 &ensp;  To Append `some text` only at the end of the file, use $ at the beginning
 
 	$sed -i '$ a some text' someFile.text
