@@ -15,7 +15,8 @@ ARGS=($*)
 function install_custom_widget(){
    case $1 in
     extensions)
-        echo "installing extensions"
+        cp -r $FLUTTERCW_DIR/extensions ./lib
+        echo "Extensions was added to lib/extension folder"
     ;;
     alert_dialog)
         echo "installing extensions"
@@ -31,8 +32,6 @@ function install_custom_widget(){
    esac
 }
 
-# ${#arrayName[@]} is a way to find an array length
-# -f: check is a file exist
 function check_flutter_root_directory(){
    if [[ -f "pubspec.yaml" ]]; then
         return 0
@@ -42,7 +41,7 @@ function check_flutter_root_directory(){
 }
 
 function list_widgets_available(){
-    echo '''
+    echo ''' 
     Available widgets:
 
     extensions            Create a file with handy dart extensions.
@@ -52,8 +51,7 @@ function list_widgets_available(){
 }
 
 
-echo $FLUTTERCW_DIR
-echo $(pwd)
+
 check_flutter_root_directory
 IS_FLUTTER_DIR=$?
 if [[ IS_FLUTTER_DIR -eq 1 ]]; then
