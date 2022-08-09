@@ -91,7 +91,7 @@ $ fluttercw -i extensions
  -  **-ge**  &ensp; &ensp; Greater than or equal
  -  **-lt**    &ensp; &ensp; Less than
  - **-le**   &ensp; &ensp; Less than or equal
- -  **!=**  &ensp; &ensp;  Diferent
+ -  **!=**  &ensp; &ensp;  different
 - [[ $i == z* ]] True if $a starts with an z (pattern matching)
 - [[ $a == "z*" ]] True if $a is equal to z* (String literal)
   
