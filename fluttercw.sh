@@ -85,9 +85,15 @@ function list_widgets_available(){
 }
 
 function show_help(){
-    echo '''
-    
+    echo '''Install Custom Flutter widgets into your project.
 
+Usage: fluttercw <command> [arguments]
+
+Available commands:
+
+    -i, --install                          Install a custom widget into lib folder.
+    -l, --list                             List all available custom widgets.
+    -h, --help                             See help options.
     '''
 }
 
@@ -98,7 +104,7 @@ IS_FLUTTER_DIR=$?
 if [[ IS_FLUTTER_DIR -eq 1 ]]; then
     printf "Error: No pubspec.yaml file found"
     printf "\n"
-    printf "This command should be run from the root of your Flutter project"
+    echo "This command should be run from the root of your Flutter project"
     exit 1
 fi
 
@@ -129,10 +135,10 @@ for i in ${!ARGS[@]}; do
             list_widgets_available
         ;;
         -h) 
-            list_widgets_available
+            show_help
         ;;
         --help) 
-            list_widgets_available
+            show_help
         ;;
         *) echo "$i not a option"
         ;;
