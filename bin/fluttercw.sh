@@ -33,7 +33,7 @@ function install_custom_widget(){
 
 # ${#arrayName[@]} is a way to find an array length
 # -f: check is a file exist
-function checkFlutterRootDirectory(){
+function check_flutter_root_directory(){
    if [[ -f "pubspec.yaml" ]]; then
         return 0
     else
@@ -51,9 +51,15 @@ function list_widgets_available(){
     '''
 }
 
-checkFlutterRootDirectory
+
+echo $FLUTTERCW_DIR
+echo $(pwd)
+check_flutter_root_directory
 IS_FLUTTER_DIR=$?
 if [[ IS_FLUTTER_DIR -eq 1 ]]; then
+    printf "Error: No pubspec.yaml file found"
+    printf "\n"
+    printf "This command should be run from the root of your Flutter project"
     exit 1
 fi
 
