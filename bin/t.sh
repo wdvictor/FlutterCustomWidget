@@ -29,12 +29,15 @@ function installCustomWidget(){
 function checkFlutterRootDirectory(){
    if [[ -f "pubspec.yaml" ]]; then
         echo "Is a flutter directory"
+        return 0
     else
         echo "not a flutter directory"
+        return 1
    fi
 }
 
 checkFlutterRootDirectory
+echo $?
 
 # Curly brackets are required for arrays to access index
 # @ is used to output all elements of an array
