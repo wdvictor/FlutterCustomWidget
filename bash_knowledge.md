@@ -190,7 +190,7 @@ Print 1st Line From File
 
   
 
- -The : operation
+ - The : operation
 
 : operator is same as **nothing**. **Do nothing**.
 
@@ -198,12 +198,37 @@ Ex:
 
 [ ! -d test ] && mkdir test || :
 
-  
-
 If the test directory does not exist [ ! -d test] then create it. But if the first condition is false (The test directory exist, then do nothing)
-
+ 
  - grep, regex, awk and pipe
 
        $ cat data.json | grep -E '.*_id_.*' | awk -F':' '{ print $2 }'   
 
 The cat command sends the data.json string to grep, which uses regex to print all lines that contain \_id_ in it. Then is sent to awk to split the string using ':' (-F':') and print the second line ( { print $2 }). The result of this code will be all values of the field that have \_id_ in it  
+
+
+ - **expr** command
+
+	The  **expr**  command in Unix evaluates a given expression and displays its corresponding output. It is used for:
+
+  1) Basic operations like addition, subtraction, multiplication, division, and modulus on integers.
+  2) Evaluating regular expressions, string operations like substring, length of strings etc.
+	
+**Syntax:**
+
+		$expr expression
+
+- **Arithmetic expansion**
+	Since expr is considered "antiquated", you can use arithmetic expansion
+
+**Syntax:**
+
+		$(($X + $Y))
+		$(($X - $Y))
+		$(($X / $Y))
+		$(($X * $Y))
+		$(($X % $Y))
+
+		
+
+
