@@ -51,9 +51,20 @@ function install_custom_widget(){
     custom_awesome_dialog)
         install_custom_awesome_dialog
     ;;
+    fade_and_scale_animation)
+        install_fade_and_scale_animation
+    ;;
     *)  echo "´$1´ widget not found. Use ´fluttercw -l´ to list all available widgets"
     ;;
    esac
+}
+
+function install_fade_and_scale_animation(){
+    if [[ ! -d "./lib/widgets" ]]; then
+        mkdir ./lib.widgets
+    fi
+    cp -r $FLUTTERCW_DIR/fade_and_scale_animation ./lib/widgets
+    echo "Fade and scale animation was added to lib/widgets folder"
 }
 
 function check_flutter_root_directory(){
@@ -68,9 +79,10 @@ function list_widgets_available(){
     echo ''' 
     Available widgets:
 
-    extensions            Create a file with handy dart extensions.
-    alert_dialog          Alert Dialog widget to display in cases of warnings or alerts.
-    animated_fab_button   A Widget to use with floating Action Button parameter in Scaffold. Has an beautiful animation.
+    extensions                          Create a file with handy dart extensions.
+    alert_dialog                        Alert Dialog widget to display in cases of warnings or alerts.
+    animated_fab_button                 A Widget to use with floating Action Button parameter in Scaffold. Has an beautiful animation.
+    fade_and_scale_animation    An animation that start scale and opacty at 0 and animate to 1. Cool to use in lists.
     '''
 }
 
