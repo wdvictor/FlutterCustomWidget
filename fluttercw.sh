@@ -54,6 +54,9 @@ function install_custom_widget(){
     fade_and_scale_animation)
         install_fade_and_scale_animation
     ;;
+    center_to_bottom_animation)
+        install_bottom_to_center_animation
+    ;;
     *)  echo "´$1´ widget not found. Use ´fluttercw -l´ to list all available widgets"
     ;;
    esac
@@ -65,6 +68,14 @@ function install_fade_and_scale_animation(){
     fi
     cp -r $FLUTTERCW_DIR/fade_and_scale_animation ./lib/widgets
     echo "Fade and scale animation was added to lib/widgets folder"
+}
+
+function install_bottom_to_center_animation(){
+    if [[ ! -d "./lib/widgets" ]]; then
+        mkdir ./lib.widgets
+    fi
+    cp -r $FLUTTERCW_DIR/bottom_to_center_animation ./lib/widgets
+    echo "Bottom to center animation was added to lib/widgets folder"
 }
 
 function check_flutter_root_directory(){
@@ -82,7 +93,8 @@ function list_widgets_available(){
     extensions                          Create a file with handy dart extensions.
     alert_dialog                        Alert Dialog widget to display in cases of warnings or alerts.
     animated_fab_button                 A Widget to use with floating Action Button parameter in Scaffold. Has an beautiful animation.
-    fade_and_scale_animation    An animation that start scale and opacty at 0 and animate to 1. Cool to use in lists.
+    fade_and_scale_animation            An animation that start scale and opacty at 0 and animate to 1. Cool to use in lists.
+    center_to_bottom_animation          Animate a widget from outsite the screen to the center
     '''
 }
 
